@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>로그인</title>
+</head>
+<body>
+
+<h2>카카오 로그인</h2>
+<button onclick="kakaoLogin()">로그인</button>
+
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+<script>
+Kakao.init('너의_JS키');
+
+function kakaoLogin() {
+  Kakao.Auth.login({
+    success: function() {
+      // 로그인 성공 → 캘린더 이동
+      window.location.href = "calendar.html";
+    },
+    fail: function(err) {
+      alert("로그인 실패");
+      console.log(err);
+    }
+  });
+}
+</script>
+
+</body>
+</html>
